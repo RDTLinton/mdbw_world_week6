@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+form {
+    width: 400px;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: rgb(80, 80, 80);
+}
+
+h1 {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+button {
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: slateblue;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.row {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+}
+
+.gap-sm {
+    grid-gap: 5px;
+}
