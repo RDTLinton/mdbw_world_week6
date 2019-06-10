@@ -1,34 +1,40 @@
+html {
+    background-color: lightseagreen;
+}
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
     display: grid;
     align-content: center;
     justify-content: center;
+    height: 100vh;
+    padding: 20px;
 }
 
 form {
     width: 400px;
+    max-width: 90vw;
     padding: 25px;
-    border-radius: 10px;
-    background-color: rgb(80, 80, 80);
+    /* border-radius: 10px; */
+    background-color:white;
 }
 
 h1 {
-    color: white;
+
 }
 
 label {
-    color: white;
+    
 }
 
-input,
-select {
+input {
     display: block;
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
+    background-color:#b6ddff;
     border: none;
 }
 
@@ -36,7 +42,6 @@ select {
 button {
     padding: 1rem;
     border: none;
-    border-radius: 5px;
     background: slateblue;
     color: white;
 }
@@ -53,4 +58,8 @@ button {
 
 .gap-sm {
     grid-gap: 5px;
+}
+
+.hidden {
+    display: none;
 }

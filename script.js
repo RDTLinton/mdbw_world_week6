@@ -1,38 +1,8 @@
-// // QUERY PARAMETERS
-// API_KEY = 'AIzaSyDa5l1n8MG5D51XzExY9O65kUjBNW3BNEw';
-// OUTPUT_TYPE = 'json'
-// INPUT_TYPE = 'textquery'
-// FIELDS = 'name,rating';
+document.getElementById("submit").addEventListener('click', function submit(e){
+    e.preventDefault();
+});
 
-
-// document.getElementById("submit").addEventListener('click', function submit(e){
-//     e.preventDefault();
-//     console.log("blah");
-// });
-
-// function search(){
-//     // get search text from input element
-//     var searchText = document.getElementById("searchText").value;
-
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function() {
-//         if (this.readyState == 4 && this.status == 200) {
-//             console.log(this.responseText);
-//             var response = JSON.parse(this.responseText)
-//             console.log(response.candidates);
-//         }
-//     };
-//     // perform AJAX request on google places API with query parameters defined above
-//     xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/findplacefromtext/"+OUTPUT_TYPE+
-//             "?key="+API_KEY+
-//             "&fields="+FIELDS+
-//             "&inputtype="+INPUT_TYPE+
-//             "&input="+searchText, true);
-//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xhttp.send();
-// }
-
-var placeSearch, autocomplete;
+var autocomplete;
 
 var componentForm = {
 //   street_number: 'short_name',
@@ -51,7 +21,7 @@ function initAutocomplete() {
 
   // Avoid paying for data that you don't need by restricting the set of
   // place fields that are returned to just the address components.
-  autocomplete.setFields(['address_component']);
+  autocomplete.setFields(['address_component', 'geometry']);
 
   // When the user selects an address from the drop-down, populate the
   // address fields in the form.
@@ -60,7 +30,7 @@ function initAutocomplete() {
 
 function fillInAddress() {
   // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
+  const place = autocomplete.getPlace();
 
   for (var component in componentForm) {
     document.getElementById(component).value = '';
@@ -70,12 +40,15 @@ function fillInAddress() {
   // Get each component of the address from the place details,
   // and then fill-in the corresponding field on the form.
   for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
+    const addressType = place.address_components[i].types[0];
     if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
+      const val = place.address_components[i][componentForm[addressType]];
       document.getElementById(addressType).value = val;
     }
   }
+  const location = place.geometry.location;
+  document.getElementById('lat').value = location.lat();
+  document.getElementById('lng').value = location.lng();
 }
 
 // Bias the autocomplete object to the user's geographical location,

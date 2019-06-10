@@ -12,7 +12,7 @@
         <h1>Register</h1>
         <div class="grid gap-sm">
             <label>Full Name</label>
-            <input id="searchText" placeholder="Type your name here" type="text" onkeyup="search()" required/>
+            <input id="searchText" placeholder="Type your name here" type="text" required/>
         </div>
         <div class="grid gap-sm">
             <label>E-mail</label>
@@ -25,7 +25,7 @@
                 onFocus="geolocate()"
                 type="text" required/>
         </div>
-        <div class="grid row">
+        <div class="grid row hidden">
             <div class="grid gap-sm">
                 <label>Country</label>
                 <input id="country" placeholder="Country" disabled/>
@@ -35,7 +35,7 @@
                 <input id="administrative_area_level_1" placeholder="State" disabled/>
             </div>
         </div>
-        <div class="grid row">
+        <div class="grid row hidden">
             <div class="grid gap-sm">
                 <label>City</label>
                 <input id="locality" placeholder="City" disabled/>
@@ -45,37 +45,20 @@
                 <input id="postal_code" placeholder="Zip Code" disabled/>
             </div>
         </div>
+        <div class="grid row hidden">
+            <div class="grid gap-sm">
+                <label>Lat</label>
+                <input id="lat" placeholder="Latitude" disabled/>
+            </div>
+            <div class="grid gap-sm">
+                <label>Lng</label>
+                <input id="lng" placeholder="Longitude" disabled/>
+            </div>
+        </div>
 
         <button id="submit" type="submit">Let's Go</button>
     </form>
-
-    <!-- Note: The address components in this sample are typical. You might need to adjust them for
-                the locations relevant to your app. For more information, see
-        https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
-    -->
-
-    <!-- <table id="address">
-        <tr>
-            <td class="label">Street address</td>
-            <td class="slimField"><input class="field" id="street_number" disabled="true"/></td>
-            <td class="wideField" colspan="2"><input class="field" id="route" disabled="true"/></td>
-        </tr>
-        <tr>
-            <td class="label">City</td>
-            <td class="wideField" colspan="3"><input class="field" id="locality" disabled="true"/></td>
-        </tr>
-        <tr>
-            <td class="label">State</td>
-            <td class="slimField"><input class="field" id="administrative_area_level_1" disabled="true"/></td>
-            <td class="label">Zip code</td>
-            <td class="wideField"><input class="field" id="postal_code" disabled="true"/></td>
-        </tr>
-        <tr>
-            <td class="label">Country</td>
-            <td class="wideField" colspan="3"><input class="field" id="country" disabled="true"/></td>
-        </tr>
-    </table> -->
     <script src="./script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYHK7zRrD53LkFHrO-6CkzNcCQIZzqIBQ&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYHK7zRrD53LkFHrO-6CkzNcCQIZzqIBQ&libraries=places,geometry&callback=initAutocomplete" async defer></script>
 </body>
 </html>
