@@ -20,27 +20,32 @@ client.auth.loginWithCredential(new stitch.AnonymousCredential())
   // Returns a promise that resolves to the authenticated user
   .then(user => {
     sendPayload();
-    console.log(`successfully logged in with id: ${user.id}`
-    )})
+    console.log(`successfully logged in with id: ${user.id}`)
+  })
   .catch(err => console.error(`login failed with error: ${err}`))
 
 
 async function sendPayload() {
-  document.getElementById("form").addEventListener('submit', async function submit(e){
+  document.getElementById("form").addEventListener('submit', async function submit(e) {
     e.preventDefault();
-    document.getElementById('loading').style.display="block";
+    document.getElementById('loading').style.display = "block";
     const payload = {
-      "name":document.getElementById("name").value,
-      "email":document.getElementById("email").value,
-      "location":{
-        "country":document.getElementById("country").value,
-        "city":document.getElementById("locality").value,
-        "lat":document.getElementById("lat").value,
-        "lng":document.getElementById("lng").value
-      }  
+      "name": document.getElementById("name").value,
+      "email": document.getElementById("email").value,
+      "location": {
+        "country": document.getElementById("country").value,
+        "city": document.getElementById("locality").value,
+        "lat": document.getElementById("lat").value,
+        "lng": document.getElementById("lng").value
+      }
     }
-    const { insertBody } = await coll.insertOne(payload);  
-});
+    const {
+      insertBody
+    } = await coll.insertOne(payload);
+    setTimeout(() => {
+      document.getElementById('step-animation').style.display = "block";
+    }, 3000);
+  });
 }
 
 
@@ -57,7 +62,9 @@ function initAutocomplete() {
   // Create the autocomplete object, restricting the search predictions to
   // geographical location types.
   autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'), {types: ['geocode']});
+    document.getElementById('autocomplete'), {
+      types: ['geocode']
+    });
 
   // Avoid paying for data that you don't need by restricting the set of
   // place fields that are returned to just the address components.
@@ -95,13 +102,15 @@ function fillInAddress() {
 // as supplied by the browser's 'navigator.geolocation' object.
 function geolocate() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition(function (position) {
       var geolocation = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      var circle = new google.maps.Circle(
-          {center: geolocation, radius: position.coords.accuracy});
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
       autocomplete.setBounds(circle.getBounds());
     });
   }
