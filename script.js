@@ -4,6 +4,23 @@ document.getElementById("submit").addEventListener('click', function submit(e){
 
 var autocomplete;
 
+// Important Stitch Info
+const APP_ID = "week5-txodp"; // Add your Stitch App ID here
+const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
+const {
+  Stitch
+} = stitch;
+
+// Setup the connection between the frontend and MongoDB Stitch
+const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
+const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVICE)
+  .db('sample_airbnb')
+  .collection('listingsAndReviews');
+
+
+
+var placeSearch, autocomplete;
+
 var componentForm = {
 //   street_number: 'short_name',
 //   route: 'long_name',
