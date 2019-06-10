@@ -15,9 +15,7 @@ const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVI
 
 document.getElementById("form").addEventListener('submit', function submit(e){
     e.preventDefault();
-<<<<<<< Updated upstream
     document.getElementById('loading').style.display="block";
-=======
     
     const data = {
       "name":document.getElementById("name").value,
@@ -30,7 +28,6 @@ document.getElementById("form").addEventListener('submit', function submit(e){
       }
       
     }
->>>>>>> Stashed changes
 });
 
 var placeSearch, autocomplete;
