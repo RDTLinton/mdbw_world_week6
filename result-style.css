@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: 'Abel', sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container{
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* background-image: -webkit-gradient(linear, left top, left bottom, from(#311847), to(#3EB9E6)); */
+    background-color: lightseagreen;
+}
+
+.container:nth-child(2) {
+    background-color: lightsalmon;
+}
+
+.container:nth-child(3) {
+    background-color: lightskyblue;
+}
+
+.weather-box{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.row1{
+    display: grid;
+    /* width: 100%; */
+    grid-auto-flow: column;
+    grid-gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding: 20px;
+}
+.weather-location{
+    color: white;
+    font-size: 50px;
+}
+
+.weather-icon {
+    width: 100px;
+    
+}
+.row2{
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.temp{
+    color: white;
+    font-size: 80px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: color 1s;
+}
+.temp-type{
+    color: lightcoral;
+    font-size: 80px;
+    cursor: pointer;
+    transition: color 1s;
+}
+.weather-description{
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.row {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    grid-gap: 30px;
+    padding: 0px 20px;
+}
+
+.row > .label {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.row > .content {
+    font-size: 1.5em;
+    text-align: right;
+}
+
+li {
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 480px) {
+    .row1{
+        grid-auto-flow: row;
+    }
+    /*     
+    .weather-location{
+        font-size: 30px;
+    }
+    .made-by{
+        display: none;
+    }
+    .block1{
+        padding: 20px;
+    }
+    .block2{
+        padding: 20px;
+    }
+    .weather-days{
+        font-size: 16px;
+    }
+    .container{
+        height: 130vh;
+    }    */
+}

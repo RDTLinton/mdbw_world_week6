@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MongoDB World Itiniary</title>
+    <link rel="stylesheet" href="./result-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+</head>
+<body>    
+    <div class="container weather-box">
+        <!-- <div class="weather-box"> -->
+            <div class="row1">
+                <h2 class="weather-location"></h2>
+                <canvas class="weatherType" id="icon1" width="128" height="128"></canvas>
+            </div>
+            <div class="row2">
+                <h1 class="temp"></h1>
+                <span class="temp-type">°C</span>
+            </div>
+            <h2 class="weather-description"></h2>
+        <!-- </div> -->
+    </div>
+    <div class="container">
+        <h1>Popular Attractions</h1>
+        <ul>
+            <li>X&Y Museum</li>
+            <li>Bridget's Night Club</li>
+            <li>Cliff Hanging</li>
+            <li>High Tower of NYC</li>
+            <li>Mid-City Beach and Hotel</li>
+            <li>NYC Canyon</li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Your Itiniary</h1>
+        <div class="row">
+            <span class="label">Airport</span><span id="airport" class="content">NMIA</span>
+        </div>        
+        <div class="row">
+            <span class="label">Flight #</span><span id="flight-number" class="content">00001</span>
+        </div>
+        <div class="row">
+            <span class="label">Flight Time</span><span id="flight-time" class="content">9:30 AM EST</span>
+        </div>
+        <div class="row">
+            <span class="label">Approx. Arrival Time</span><span id="arrival-time" class="content">3:30 PM EST</span>
+        </div>
+        <div class="row">
+            <span class="label">Departure Location</span><span id="depature-location" class="content">Kingston, Jamaica</span>
+        </div>
+        <div class="row">
+            <span class="label">Arrival Location</span><span id="arrival-location" class="content">MIAMI FL</span>
+        </div>
+    </div>
+    <script src="./skycons.js"></script>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script src="./result-main.js"></script>
+</body>
+</html>
