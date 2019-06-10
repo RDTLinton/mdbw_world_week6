@@ -1,21 +1,24 @@
 var autocomplete;
 
 // Important Stitch Info
-const APP_ID = "week5-txodp"; // Add your Stitch App ID here
-const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
-const {
-  Stitch
-} = stitch;
+// const APP_ID = "week5-txodp"; // Add your Stitch App ID here
+// const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
+// const {
+//   Stitch
+// } = stitch;
 
 // Setup the connection between the frontend and MongoDB Stitch
-const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
-const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVICE)
-  .db('sample_airbnb')
-  .collection('listingsAndReviews');
+// const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
+// const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVICE)
+//   .db('sample_airbnb')
+//   .collection('listingsAndReviews');
 
 document.getElementById("form").addEventListener('submit', function submit(e){
     e.preventDefault();
     document.getElementById('loading').style.display="block";
+    setTimeout(() => {
+      document.getElementById('step-animation').style.display="block";
+    }, 3000);
 });
 
 var placeSearch, autocomplete;
