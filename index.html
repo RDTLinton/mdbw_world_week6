@@ -9,70 +9,8 @@
     <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script>
 </head>
 <body>
-    <form id="form" class="grid">
-        <div id="loading" class="loading"></div>
-        <h1>Register</h1>
-        <div class="grid gap-sm">
-            <label>Full Name</label>
-            <input id="name" placeholder="Type your name here" type="text" required/>
-        </div>
-        <div class="grid gap-sm">
-            <label>E-mail</label>
-            <input id="email" placeholder="Type e-mail here" type="email" required/>
-        </div>
-        <div id="locationField" class="grid gap-sm">
-            <label>Full Address</label>
-            <input id="autocomplete"
-                placeholder="Type your full street address"
-                onFocus="geolocate()"
-                type="text" required/>
-        </div>
-        <div class="grid row hidden">
-            <div class="grid gap-sm">
-                <label>Country</label>
-                <input id="country" placeholder="Country" />
-            </div>
-            <div class="grid gap-sm">
-                <label>State</label>
-                <input id="administrative_area_level_1" placeholder="State" disabled/>
-            </div>
-        </div>
-        <div class="grid row hidden">
-            <div class="grid gap-sm">
-                <label>City</label>
-                <input id="locality" placeholder="City" />
-            </div>
-            <div class="grid gap-sm">
-                <label>Zip code</label>
-                <input id="postal_code" placeholder="Zip Code" disabled/>
-            </div>
-        </div>
-        <div class="grid row hidden">
-            <div class="grid gap-sm">
-                <label>Lat</label>
-                <input id="lat" placeholder="Latitude" disabled/>
-            </div>
-            <div class="grid gap-sm">
-                <label>Lng</label>
-                <input id="lng" placeholder="Longitude" disabled/>
-            </div>
-        </div>
-
-        <button id="submit" type="submit">Let's Go</button>
-    </form>
-    <ul id="step-animation">
-            <li>...Inserting into a new Atlas Collection document...</li>
-            <li>...insert triggers a call to a stich function...</li>
-            <li>...function is finding nearest airport...</li>
-            <li>...another function uses the flight data to get flight details...</li>
-            <li>...another function uses AccuWeather to see NYC weather details...</li>
-            <li>...another function determines the direction to MongoDB World...</li>
-            <li>...another function finds attractions in NYC...</li>
-            <li>... inserting attractions into a new Atlas Collection document</li>
-            <li>...insert triggers a call to a stich function...</li>
-            <li>...function is sending email link for full trip itinerary...</li>
-        </ul>
-    <script src="./script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTo-vHz2G8oqieSVikOK0zmTj8xhjIzSs&libraries=geometry,places&callback=initAutocomplete" async defer></script>
+    <h1>Finished!</h1>
+    <img src="./diagram.PNG"/>
+    <div id="loading" class="loading"></div>
 </body>
 </html>
