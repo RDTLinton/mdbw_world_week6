@@ -1,7 +1,7 @@
 var autocomplete;
 
 // Important Stitch Info
-const APP_ID = "week6-flayu"; // Add your Stitch App ID here
+const APP_ID = "week6challenge-eufie"; // Add your Stitch App ID here
 const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
 const {
   Stitch
