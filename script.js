@@ -1,7 +1,7 @@
 var autocomplete;
 
 // Important Stitch Info
-const APP_ID = "week6challenge-eufie"; // Add your Stitch App ID here
+const APP_ID = "week6-flayu"; // Add your Stitch App ID here
 const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
 const {
   Stitch
@@ -13,22 +13,36 @@ const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVI
   .db('mdbw')
   .collection('week6');
 
-document.getElementById("form").addEventListener('submit', function submit(e){
+
+// Authenticate the client if they're not already logged in
+// After login search for relevant properties and populate the table
+client.auth.loginWithCredential(new stitch.AnonymousCredential())
+  // Returns a promise that resolves to the authenticated user
+  .then(user => {
+    sendPayload();
+    console.log(`successfully logged in with id: ${user.id}`
+    )})
+  .catch(err => console.error(`login failed with error: ${err}`))
+
+
+async function sendPayload() {
+  document.getElementById("form").addEventListener('submit', async function submit(e){
     e.preventDefault();
     document.getElementById('loading').style.display="block";
-    
-    const data = {
+    const payload = {
       "name":document.getElementById("name").value,
       "email":document.getElementById("email").value,
       "location":{
         "country":document.getElementById("country").value,
-        "city":document.getElementById("city").value,
+        "city":document.getElementById("locality").value,
         "lat":document.getElementById("lat").value,
         "lng":document.getElementById("lng").value
-      }
-      
+      }  
     }
+    const { insertBody } = await coll.insertOne(payload);  
 });
+}
+
 
 var placeSearch, autocomplete;
 

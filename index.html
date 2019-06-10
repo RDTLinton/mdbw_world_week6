@@ -21,16 +21,16 @@
             <input id="email" placeholder="Type e-mail here" type="email" required/>
         </div>
         <div id="locationField" class="grid gap-sm">
-            <label>Address</label>
+            <label>Full Address</label>
             <input id="autocomplete"
-                placeholder="Type your address"
+                placeholder="Type your full street address"
                 onFocus="geolocate()"
                 type="text" required/>
         </div>
         <div class="grid row hidden">
             <div class="grid gap-sm">
                 <label>Country</label>
-                <input id="country" placeholder="Country" disabled/>
+                <input id="country" placeholder="Country" />
             </div>
             <div class="grid gap-sm">
                 <label>State</label>
@@ -40,7 +40,7 @@
         <div class="grid row hidden">
             <div class="grid gap-sm">
                 <label>City</label>
-                <input id="locality" placeholder="City" disabled/>
+                <input id="locality" placeholder="City" />
             </div>
             <div class="grid gap-sm">
                 <label>Zip code</label>
@@ -61,6 +61,6 @@
         <button id="submit" type="submit">Let's Go</button>
     </form>
     <script src="./script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYHK7zRrD53LkFHrO-6CkzNcCQIZzqIBQ&libraries=geometry,places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTo-vHz2G8oqieSVikOK0zmTj8xhjIzSs&libraries=geometry,places&callback=initAutocomplete" async defer></script>
 </body>
 </html>
