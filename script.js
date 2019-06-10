@@ -2,13 +2,15 @@ var autocomplete;
 
 // Important Stitch Info
 const APP_ID = "week6challenge-eufie"; // Add your Stitch App ID here
+const TEST_APP_ID = "week6-flayu";
+
 const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
 const {
   Stitch
 } = stitch;
 
 // Setup the connection between the frontend and MongoDB Stitch
-const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
+const client = stitch.Stitch.initializeDefaultAppClient(TEST_APP_ID);
 const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVICE)
   .db('mdbw')
   .collection('week6');
