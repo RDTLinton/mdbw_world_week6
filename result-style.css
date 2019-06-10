@@ -22,6 +22,7 @@ h1 {
     align-content: center;
     /* background-image: -webkit-gradient(linear, left top, left bottom, from(#311847), to(#3EB9E6)); */
     background-color: lightseagreen;
+    overflow: hidden;
 }
 
 .container:nth-child(2) {
@@ -130,4 +131,10 @@ li {
     .container{
         height: 130vh;
     }    */
+}
+
+#map {
+    width: 500px;
+    max-width: 90vw;
+    height: 300px;
 }
