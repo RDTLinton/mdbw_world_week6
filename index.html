@@ -10,21 +10,7 @@
 </head>
 <body>
     <form id="form" class="grid">
-        <div id="loading" class="loading">
-            <!-- add animated steps here -->
-            <ul id="step-animation">
-                <li>...Inserting into a new Atlas Collection document...</li>
-                <li>...insert triggers a call to a stich function...</li>
-                <li>...function is finding nearest airport...</li>
-                <li>...another function uses the flight data to get flight details...</li>
-                <li>...another function uses AccuWeather to see NYC weather details...</li>
-                <li>...another function determines the direction to MongoDB World...</li>
-                <li>...another function finds attractions in NYC...</li>
-                <li>... inserting attractions into a new Atlas Collection document</li>
-                <li>...insert triggers a call to a stich function...</li>
-                <li>...function is sending email link for full trip itinerary...</li>
-            </ul>
-        </div>
+        <div id="loading" class="loading"></div>
         <h1>Register</h1>
         <div class="grid gap-sm">
             <label>Full Name</label>
@@ -74,6 +60,18 @@
 
         <button id="submit" type="submit">Let's Go</button>
     </form>
+    <ul id="step-animation">
+            <li>...Inserting into a new Atlas Collection document...</li>
+            <li>...insert triggers a call to a stich function...</li>
+            <li>...function is finding nearest airport...</li>
+            <li>...another function uses the flight data to get flight details...</li>
+            <li>...another function uses AccuWeather to see NYC weather details...</li>
+            <li>...another function determines the direction to MongoDB World...</li>
+            <li>...another function finds attractions in NYC...</li>
+            <li>... inserting attractions into a new Atlas Collection document</li>
+            <li>...insert triggers a call to a stich function...</li>
+            <li>...function is sending email link for full trip itinerary...</li>
+        </ul>
     <script src="./script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTo-vHz2G8oqieSVikOK0zmTj8xhjIzSs&libraries=geometry,places&callback=initAutocomplete" async defer></script>
 </body>
