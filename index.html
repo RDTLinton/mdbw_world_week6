@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <form class="grid">
+    <form id="form" class="grid">
+        <div id="loading" class="loading"></div>
         <h1>Register</h1>
         <div class="grid gap-sm">
             <label>Full Name</label>
-            <input id="searchText" placeholder="Type your name here" type="text" required/>
+            <input id="name" placeholder="Type your name here" type="text" required/>
         </div>
         <div class="grid gap-sm">
             <label>E-mail</label>
-            <input placeholder="Type e-mail here" type="email" required/>
+            <input id="email" placeholder="Type e-mail here" type="email" required/>
         </div>
         <div id="locationField" class="grid gap-sm">
             <label>Address</label>

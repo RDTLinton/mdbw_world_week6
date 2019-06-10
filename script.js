@@ -13,16 +13,14 @@ const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVI
   .db('sample_airbnb')
   .collection('listingsAndReviews');
 
-
-document.getElementById("submit").addEventListener('click', function submit(e){
+document.getElementById("form").addEventListener('submit', function submit(e){
     e.preventDefault();
+    document.getElementById('loading').style.display="block";
 });
 
 var placeSearch, autocomplete;
 
 var componentForm = {
-//   street_number: 'short_name',
-//   route: 'long_name',
   locality: 'long_name',
   administrative_area_level_1: 'short_name',
   country: 'long_name',
