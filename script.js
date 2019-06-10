@@ -1,7 +1,7 @@
 var autocomplete;
 
 // Important Stitch Info
-const APP_ID = "week5-txodp"; // Add your Stitch App ID here
+const APP_ID = "week6challenge-eufie"; // Add your Stitch App ID here
 const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
 const {
   Stitch
@@ -10,12 +10,27 @@ const {
 // Setup the connection between the frontend and MongoDB Stitch
 const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
 const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVICE)
-  .db('sample_airbnb')
-  .collection('listingsAndReviews');
+  .db('mdbw')
+  .collection('week6');
 
 document.getElementById("form").addEventListener('submit', function submit(e){
     e.preventDefault();
+<<<<<<< Updated upstream
     document.getElementById('loading').style.display="block";
+=======
+    
+    const data = {
+      "name":document.getElementById("name").value,
+      "email":document.getElementById("email").value,
+      "location":{
+        "country":document.getElementById("country").value,
+        "city":document.getElementById("city").value,
+        "lat":document.getElementById("lat").value,
+        "lng":document.getElementById("lng").value
+      }
+      
+    }
+>>>>>>> Stashed changes
 });
 
 var placeSearch, autocomplete;
