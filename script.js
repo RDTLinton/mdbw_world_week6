@@ -1,7 +1,3 @@
-document.getElementById("submit").addEventListener('click', function submit(e){
-    e.preventDefault();
-});
-
 var autocomplete;
 
 // Important Stitch Info
@@ -18,6 +14,9 @@ const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVI
   .collection('listingsAndReviews');
 
 
+document.getElementById("submit").addEventListener('click', function submit(e){
+    e.preventDefault();
+});
 
 var placeSearch, autocomplete;
 
