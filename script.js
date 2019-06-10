@@ -10,7 +10,7 @@ const {
 } = stitch;
 
 // Setup the connection between the frontend and MongoDB Stitch
-const client = stitch.Stitch.initializeDefaultAppClient(TEST_APP_ID);
+const client = stitch.Stitch.initializeDefaultAppClient(APP_ID);
 const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVICE)
   .db('mdbw')
   .collection('week6');
@@ -21,8 +21,8 @@ const coll = client.getServiceClient(stitch.RemoteMongoClient.factory, MDB_SERVI
 client.auth.loginWithCredential(new stitch.AnonymousCredential())
   // Returns a promise that resolves to the authenticated user
   .then(user => {
-    sendPayload();
     console.log(`successfully logged in with id: ${user.id}`)
+    sendPayload();
   })
   .catch(err => console.error(`login failed with error: ${err}`))
 
@@ -41,9 +41,11 @@ async function sendPayload() {
         "lng": document.getElementById("lng").value
       }
     }
-    const {
-      insertBody
-    } = await coll.insertOne(payload);
+    console.log(payload);
+    
+    // const {
+    //   insertBody
+    // } = await coll.insertOne(payload);
     setTimeout(() => {
       document.getElementById('step-animation').style.display = "block";
     }, 3000);
