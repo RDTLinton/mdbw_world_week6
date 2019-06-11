@@ -41,6 +41,7 @@ h1 {
     position: relative;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 40px;
+    padding: 30px;
 }
 
 .weather-box{
@@ -49,10 +50,13 @@ h1 {
     justify-content: center;
     position: relative;
     align-content: flex-start;
+    border: 1px solid white;
+    /* grid-template-rows: 3fr 4fr 3fr; */
 }
+
 .row1{
     display: grid;
-    /* width: 100%; */
+    width: 100%;
     grid-auto-flow: column;
     grid-gap: 20px;
     align-items: center;
@@ -75,6 +79,10 @@ h1 {
     grid-gap: 20px;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+}
+
+.row3 {
     padding: 20px;
 }
 
