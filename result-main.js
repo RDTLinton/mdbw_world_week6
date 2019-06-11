@@ -27,11 +27,11 @@
     .catch(err => console.error(`login failed with error: ${err}`))
 
     async function searchAndBuild(){
-        const res = await coll.find({email:'saspect.io@gmail.com'}).toArray();
-        console.log(res);  
+        let emailParam = ((window.location.href).split('='))[1];
+        const res = await coll.find({email:emailParam}).toArray();
 
         await getWeather(res[0].weather.city, res[0].weather['forecasted-week']);
-        await getItiniary(res[0].flightData.from, res[0].flightData.to, res[0].flightData.airline, res[0].airport.outboundpartialdate, res[0].flightData.cost, res[0].flightData.currency);  
+        await getItiniary(res[0].name, res[0].email, res[0].flightData.from, res[0].flightData.to, res[0].flightData.airline, res[0].airport.outboundpartialdate, res[0].flightData.cost, res[0].flightData.currency);  
         await getDirections(res[0].direction.start, res[0].direction.end);
     }
     
@@ -51,8 +51,6 @@
             let d = new Date(0)
             d.setUTCSeconds(utcSeconds);
             let days = (d.toString()).split('23:00:00')
-
-            
 
             $(parent).find('.weather-location').html(location);
             $(parent).find('.temp').html(Math.floor(celsius));
@@ -90,7 +88,9 @@
         icons.play();
     }
 
-    async function getItiniary(departure, arrival,airline, date, cost, currency) {
+    async function getItiniary(name, email, departure, arrival,airline, date, cost, currency) {
+        $('#name').html(name);
+        $('#email').html(email);
         $('#depature-location').html(departure);
         $('#arrival-location').html(arrival);
         $('#airline').html(airline);
