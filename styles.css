@@ -104,6 +104,11 @@ button[type="submit"] {
     max-width: 90vw;
     padding: 10px;
   }
+
+#video {
+  width: 80%;
+  margin: auto;
+}
   
   li {
     position: relative;

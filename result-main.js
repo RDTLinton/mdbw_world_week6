@@ -27,65 +27,60 @@
     .catch(err => console.error(`login failed with error: ${err}`))
 
     async function searchAndBuild(){
-        const res = await coll.find({email:'saspect.io@gmail.com'}).toArray();
-        console.log(res);  
+        let emailParam = ((window.location.href).split('='))[1];
+        const res = await coll.find({email:emailParam}).toArray();
 
-        await getWeather(res[0].location.lat, res[0].location.lng);
-        await getItiniary(res[0].flightData.from, res[0].flightData.to, res[0].flightData.airline, res[0].airport.outboundpartialdate, res[0].flightData.cost, res[0].flightData.currency);  
+        await getWeather(res[0].weather.city, res[0].weather['forecasted-week']);
+        await getItiniary(res[0].name, res[0].email, res[0].flightData.from, res[0].flightData.to, res[0].flightData.airline, res[0].airport.outboundpartialdate, res[0].flightData.cost, res[0].flightData.currency);  
         await getDirections(res[0].direction.start, res[0].direction.end);
     }
     
-    async function getWeather(lat, long) {
-        
-        let api = 'https://fcc-weather-api.glitch.me/api/current?lat=' + lat + '&lon=' + long + '';
-
-        $.getJSON(api, function (res) {
-
-            let celsius = res.main.temp;
+    async function getWeather(city, weather) {
+        //SETTING UP THE ICON 
+        let icons = new Skycons({
+            "color": "white"
+        });
+        for(i in weather){
+            
+               
+            let celsius = ((weather[i].apparentTemperatureHigh+weather[i].apparentTemperatureHigh)/2);
+            //console.log(celsius);
             let farenheit = (celsius * 1.8) + 32;
 
-            let location = res.name;
+            let location = city;
+            let iteration = (i).toString()
+            let parent = '.weather-box-'+iteration;
+            let utcSeconds = weather[i].time;
+            let d = new Date(0)
+            d.setUTCSeconds(utcSeconds);
+            let days = (d.toString()).split('23:00:00')
 
-
-
-            $('.weather-location').html(location);
-            $('.temp').html(Math.floor(celsius));
-            $('.weather-description').html(res.weather[0].description);
-            $('.weather-day').html(res.weather[0].description);
-            $('.weatherType').attr('id', res.weather[0].main);
-            $('.row2').on('click', function () {
-                if ($('.temp').html() == (Math.floor(celsius))) {
-                    $('.temp').html(Math.floor(farenheit));
-                    $('.temp-type').html('°F');
+            $(parent).find('.weather-location').html(location);
+            $(parent).find('.temp').html(Math.floor(celsius));
+            $(parent).find('.weather-description').html(weather[i].summary);
+            $(parent).find('.weather-day').html(days[0]);
+            $(parent).find('.row2').on('click', function () {
+                if ($(parent).find('.temp').html() == (Math.floor(celsius))) {
+                    $(parent).find('.temp').html(Math.floor(farenheit));
+                    $(parent).find('.temp-type').html('°F');
 
                 } else {
-                    $('.temp').html(Math.floor(celsius));
-                    $('.temp-type').html('°C');
+                    $(parent).find('.temp').html(Math.floor(celsius));
+                    $(parent).find('.temp-type').html('°C');
                 }
             });
+            let elements = $(parent).find('.weatherType');
+            for (e = elements.length; e--;){
+                icons.set( elements[e], weather[i].icon);
+            }
 
-
-            //SETTING UP THE ICON 
-            let icons = new Skycons({
-                "color": "white"
-            });
-
-            icons.set("Clear", Skycons.CLEAR_DAY);
-            icons.set("Clear-night", Skycons.CLEAR_NIGHT);
-            icons.set("Partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-            icons.set("Partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-            icons.set("Clouds", Skycons.CLOUDY);
-            icons.set("Rain", Skycons.RAIN);
-            icons.set("Sleet", Skycons.SLEET);
-            icons.set("Snow", Skycons.SNOW);
-            icons.set("Wind", Skycons.WIND);
-            icons.set("Fog", Skycons.FOG);
-            icons.play();
-
-        });
+        }
+        icons.play();
     }
 
-    async function getItiniary(departure, arrival,airline, date, cost, currency) {
+    async function getItiniary(name, email, departure, arrival,airline, date, cost, currency) {
+        $('#name').html(name);
+        $('#email').html(email);
         $('#depature-location').html(departure);
         $('#arrival-location').html(arrival);
         $('#airline').html(airline);
