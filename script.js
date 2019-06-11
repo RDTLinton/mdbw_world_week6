@@ -46,7 +46,11 @@ async function sendPayload() {
     } = await coll.insertOne(payload);
     setTimeout(() => {
       document.getElementById('step-animation').style.display = "block";
-    }, 3000);
+    }, 2000);
+
+    setTimeout(() => {
+      location.replace(window.location.href+'result.html');
+    }, 10000);
   });
 }
 
