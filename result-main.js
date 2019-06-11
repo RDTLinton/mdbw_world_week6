@@ -47,11 +47,18 @@
             let location = city;
             let iteration = (i).toString()
             let parent = '.weather-box-'+iteration;
+            let utcSeconds = weather[i].time;
+            let d = new Date(0)
+            d.setUTCSeconds(utcSeconds);
+            let days = (d.toString()).split('23:00:00')
+
+            
 
             $(parent).find('.weather-location').html(location);
             $(parent).find('.temp').html(Math.floor(celsius));
             $(parent).find('.weather-description').html(weather[i].summary);
-            $(parent).find('.weatherType').attr('id', weather[i].precipType);
+            $(parent).find('.weather-day').html(days[0]);
+            $(parent).find('.weatherType').attr('id', weather[i].icon);
             $(parent).find('.row2').on('click', function () {
                 if ($(parent).find('.temp').html() == (Math.floor(celsius))) {
                     $(parent).find('.temp').html(Math.floor(farenheit));
@@ -74,7 +81,7 @@
         icons.set("clear-night", Skycons.CLEAR_NIGHT);
         icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
         icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-        icons.set("plouds", Skycons.CLOUDY);
+        icons.set("cloudy", Skycons.CLOUDY);
         icons.set("rain", Skycons.RAIN);
         icons.set("sleet", Skycons.SLEET);
         icons.set("snow", Skycons.SNOW);
