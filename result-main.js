@@ -51,6 +51,7 @@
             $('.weather-location').html(location);
             $('.temp').html(Math.floor(celsius));
             $('.weather-description').html(res.weather[0].description);
+            $('.weather-day').html(res.weather[0].description);
             $('.weatherType').attr('id', res.weather[0].main);
             $('.row2').on('click', function () {
                 if ($('.temp').html() == (Math.floor(celsius))) {
