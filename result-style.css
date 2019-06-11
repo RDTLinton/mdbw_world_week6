@@ -93,9 +93,13 @@ h1 {
     transition: color 1s;
     align-self: flex-start;
 }
-.weather-description{
+.weather-description {
     text-align: center;
     color: white;
+}
+
+.weather-day {
+    text-align: center;
 }
 
 .row {
