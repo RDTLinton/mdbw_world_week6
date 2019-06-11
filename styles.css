@@ -167,16 +167,6 @@ button[type="submit"] {
             animation-delay: 4.5s;
   }
   
-  li:nth-child(10) {
-    -webkit-animation-delay: 5s;
-            animation-delay: 5s;
-  }
-  
-  li:nth-child(11) {
-    -webkit-animation-delay: 5.5s;
-            animation-delay: 5.5s;
-  }
-  
   @keyframes fadeIn {
     0% {
       opacity: 0;
