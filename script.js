@@ -40,6 +40,7 @@ async function sendPayload() {
         "lng": document.getElementById("lng").value
       }
     }
+    
     const {
       insertBody
     } = await coll.insertOne(payload);
