@@ -30,58 +30,58 @@
         const res = await coll.find({email:'saspect.io@gmail.com'}).toArray();
         console.log(res);  
 
-        await getWeather(res[0].location.lat, res[0].location.lng);
+        await getWeather(res[0].weather.city, res[0].weather['forecasted-week']);
         await getItiniary(res[0].flightData.from, res[0].flightData.to, res[0].flightData.airline, res[0].airport.outboundpartialdate, res[0].flightData.cost, res[0].flightData.currency);  
         await getDirections(res[0].direction.start, res[0].direction.end);
     }
     
-    async function getWeather(lat, long) {
+    async function getWeather(city, weather) {
         
-        let api = 'https://fcc-weather-api.glitch.me/api/current?lat=' + lat + '&lon=' + long + '';
-
-        $.getJSON(api, function (res) {
-
-            let celsius = res.main.temp;
+        for(i in weather){
+            
+               
+            let celsius = ((weather[i].apparentTemperatureHigh+weather[i].apparentTemperatureHigh)/2);
+            //console.log(celsius);
             let farenheit = (celsius * 1.8) + 32;
 
-            let location = res.name;
+            let location = city;
+            let iteration = (i).toString()
+            console.log(iteration);
+            
 
-
-
-            $('.weather-location').html(location);
-            $('.temp').html(Math.floor(celsius));
-            $('.weather-description').html(res.weather[0].description);
-            $('.weatherType').attr('id', res.weather[0].main);
-            $('.row2').on('click', function () {
-                if ($('.temp').html() == (Math.floor(celsius))) {
-                    $('.temp').html(Math.floor(farenheit));
-                    $('.temp-type').html('°F');
+            $('.weather-location-'+iteration).html(location);
+            $('.temp-'+iteration).html(Math.floor(celsius));
+            $('.weather-description-'+iteration).html(weather[i].summary);
+            $('.weatherType-'+iteration).attr('id', weather[i].precipType);
+            $('.row2-'+iteration).on('click', function () {
+                if ($('.temp-'+iteration).html() == (Math.floor(celsius))) {
+                    $('.temp-'+iteration).html(Math.floor(farenheit));
+                    $('.temp-type-'+iteration).html('°F');
 
                 } else {
-                    $('.temp').html(Math.floor(celsius));
-                    $('.temp-type').html('°C');
+                    $('.temp-'+iteration).html(Math.floor(celsius));
+                    $('.temp-type-'+iteration).html('°C');
                 }
             });
 
-
-            //SETTING UP THE ICON 
-            let icons = new Skycons({
-                "color": "white"
-            });
-
-            icons.set("Clear", Skycons.CLEAR_DAY);
-            icons.set("Clear-night", Skycons.CLEAR_NIGHT);
-            icons.set("Partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-            icons.set("Partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-            icons.set("Clouds", Skycons.CLOUDY);
-            icons.set("Rain", Skycons.RAIN);
-            icons.set("Sleet", Skycons.SLEET);
-            icons.set("Snow", Skycons.SNOW);
-            icons.set("Wind", Skycons.WIND);
-            icons.set("Fog", Skycons.FOG);
-            icons.play();
-
+        }
+        
+        //SETTING UP THE ICON 
+        let icons = new Skycons({
+            "color": "white"
         });
+
+        icons.set("clear", Skycons.CLEAR_DAY);
+        icons.set("clear-night", Skycons.CLEAR_NIGHT);
+        icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
+        icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
+        icons.set("plouds", Skycons.CLOUDY);
+        icons.set("rain", Skycons.RAIN);
+        icons.set("sleet", Skycons.SLEET);
+        icons.set("snow", Skycons.SNOW);
+        icons.set("wind", Skycons.WIND);
+        icons.set("fog", Skycons.FOG);
+        icons.play();
     }
 
     async function getItiniary(departure, arrival,airline, date, cost, currency) {
