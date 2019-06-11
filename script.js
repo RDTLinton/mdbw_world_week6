@@ -50,7 +50,7 @@ async function sendPayload() {
     }, 2000);
 
     setTimeout(() => {
-      location.replace('result.html');
+      location.replace('result.html?email='+payload.email);
     }, 10000);
   });
 }
