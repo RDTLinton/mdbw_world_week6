@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MongoDB World Itiniary</title>
-    
+    <title>MongoDB World Itiniary</title>   
     <link rel="stylesheet" href="./result-style.css">
-    
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-    
+    <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script>
 </head>
 <body>    
     <div class="container weather-box">
@@ -25,6 +23,7 @@
             <h2 class="weather-description"></h2>
         <!-- </div> -->
     </div>
+    
     <!-- <div class="container">
         <h1>Popular Attractions</h1>
         <ul>
@@ -39,23 +38,24 @@
     <div class="container">
         <h1>Your Itiniary</h1>
         <div class="row">
-            <span class="label">Airport</span><span id="airport" class="content">NMIA</span>
-        </div>        
-        <div class="row">
-            <span class="label">Flight #</span><span id="flight-number" class="content">00001</span>
+            <span class="label">Departure Location</span><span id="depature-location" class="content"></span>
         </div>
         <div class="row">
-            <span class="label">Flight Time</span><span id="flight-time" class="content">9:30 AM EST</span>
+            <span class="label">Arrival Location</span><span id="arrival-location" class="content"></span>
         </div>
         <div class="row">
-            <span class="label">Approx. Arrival Time</span><span id="arrival-time" class="content">3:30 PM EST</span>
+            <span class="label">Available Date</span><span id="date" class="content"></span>
         </div>
         <div class="row">
-            <span class="label">Departure Location</span><span id="depature-location" class="content">Kingston, Jamaica</span>
-        </div>
+            <span class="label">Airline</span><span id="airline" class="content"></span>
+        </div> 
         <div class="row">
-            <span class="label">Arrival Location</span><span id="arrival-location" class="content">MIAMI FL</span>
+            <span class="label">Currency</span><span id="currency" class="content"></span>
+        </div>       
+        <div class="row">
+            <span class="label">Cost</span><span id="cost" class="content"></span>
         </div>
+
     </div>
     <div class="container">
         <!-- <div id="floating-panel">
@@ -91,14 +91,12 @@
             </select>
         </div> -->
         <h1>Your Journey</h1>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d104243.27498972554!2d-73.95270466105126!3d40.715207075355046!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x89c26650d5404947%3A0xec4fb213489f11f0!2sJohn+F.+Kennedy+International+Airport%2C+Queens%2C+NY+11430%2C+USA!3m2!1d40.641311099999996!2d-73.77813909999999!4m5!1s0x89c258f9ad303595%3A0x3270a54be206ffce!2s1335+6th+Ave%2C+New+York%2C+NY+10019%2C+USA!3m2!1d40.7625654!2d-73.97972349999999!5e0!3m2!1sen!2sjm!4v1560199234714!5m2!1sen!2sjm" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-        <!-- <div id="map">
-        </div> -->
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d104243.27498972554!2d-73.95270466105126!3d40.715207075355046!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x89c26650d5404947%3A0xec4fb213489f11f0!2sJohn+F.+Kennedy+International+Airport%2C+Queens%2C+NY+11430%2C+USA!3m2!1d40.641311099999996!2d-73.77813909999999!4m5!1s0x89c258f9ad303595%3A0x3270a54be206ffce!2s1335+6th+Ave%2C+New+York%2C+NY+10019%2C+USA!3m2!1d40.7625654!2d-73.97972349999999!5e0!3m2!1sen!2sjm!4v1560199234714!5m2!1sen!2sjm" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+        <div id="map"></div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTo-vHz2G8oqieSVikOK0zmTj8xhjIzSs"></script>
     <script src="./skycons.js"></script>
     <script src="./jquery-3.2.1.min.js"></script>
-    <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script>
     <script src="./result-main.js"></script>
 </body>
 </html>

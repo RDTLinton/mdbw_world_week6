@@ -40,6 +40,7 @@ async function sendPayload() {
         "lng": document.getElementById("lng").value
       }
     }
+    //console.log(payload);
     
     const {
       insertBody
@@ -49,7 +50,7 @@ async function sendPayload() {
     }, 2000);
 
     setTimeout(() => {
-      location.replace(window.location.href+'result.html');
+      location.replace('result.html');
     }, 10000);
   });
 }
