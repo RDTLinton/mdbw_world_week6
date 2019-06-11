@@ -46,21 +46,20 @@
 
             let location = city;
             let iteration = (i).toString()
-            console.log(iteration);
-            
+            let parent = '.weather-box-'+iteration;
 
-            $('.weather-location-'+iteration).html(location);
-            $('.temp-'+iteration).html(Math.floor(celsius));
-            $('.weather-description-'+iteration).html(weather[i].summary);
-            $('.weatherType-'+iteration).attr('id', weather[i].precipType);
-            $('.row2-'+iteration).on('click', function () {
-                if ($('.temp-'+iteration).html() == (Math.floor(celsius))) {
-                    $('.temp-'+iteration).html(Math.floor(farenheit));
-                    $('.temp-type-'+iteration).html('°F');
+            $(parent).find('.weather-location').html(location);
+            $(parent).find('.temp').html(Math.floor(celsius));
+            $(parent).find('.weather-description').html(weather[i].summary);
+            $(parent).find('.weatherType').attr('id', weather[i].precipType);
+            $(parent).find('.row2').on('click', function () {
+                if ($(parent).find('.temp').html() == (Math.floor(celsius))) {
+                    $(parent).find('.temp').html(Math.floor(farenheit));
+                    $(parent).find('.temp-type').html('°F');
 
                 } else {
-                    $('.temp-'+iteration).html(Math.floor(celsius));
-                    $('.temp-type-'+iteration).html('°C');
+                    $(parent).find('.temp').html(Math.floor(celsius));
+                    $(parent).find('.temp-type').html('°C');
                 }
             });
 
