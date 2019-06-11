@@ -36,7 +36,10 @@
     }
     
     async function getWeather(city, weather) {
-        
+        //SETTING UP THE ICON 
+        let icons = new Skycons({
+            "color": "white"
+        });
         for(i in weather){
             
                
@@ -56,7 +59,6 @@
             $(parent).find('.temp').html(Math.floor(celsius));
             $(parent).find('.weather-description').html(weather[i].summary);
             $(parent).find('.weather-day').html(days[0]);
-            $(parent).find('.weatherType').attr('id', weather[i].icon);
             $(parent).find('.row2').on('click', function () {
                 if ($(parent).find('.temp').html() == (Math.floor(celsius))) {
                     $(parent).find('.temp').html(Math.floor(farenheit));
@@ -67,24 +69,12 @@
                     $(parent).find('.temp-type').html('°C');
                 }
             });
+            let elements = $(parent).find('.weatherType');
+            for (e = elements.length; e--;){
+                icons.set( elements[e], weather[i].icon);
+            }
 
         }
-        
-        //SETTING UP THE ICON 
-        let icons = new Skycons({
-            "color": "white"
-        });
-
-        icons.set("clear", Skycons.CLEAR_DAY);
-        icons.set("clear-night", Skycons.CLEAR_NIGHT);
-        icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-        icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-        icons.set("cloudy", Skycons.CLOUDY);
-        icons.set("rain", Skycons.RAIN);
-        icons.set("sleet", Skycons.SLEET);
-        icons.set("snow", Skycons.SNOW);
-        icons.set("wind", Skycons.WIND);
-        icons.set("fog", Skycons.FOG);
         icons.play();
     }
 
