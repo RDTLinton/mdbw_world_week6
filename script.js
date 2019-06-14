@@ -29,7 +29,7 @@ client.auth.loginWithCredential(new stitch.AnonymousCredential())
 async function sendPayload() {
   document.getElementById("form").addEventListener('submit', async function submit(e) {
     e.preventDefault();
-    document.getElementById('loading').style.display = "block";
+    
     const payload = {
       "name": document.getElementById("name").value,
       "email": document.getElementById("email").value,
@@ -42,16 +42,21 @@ async function sendPayload() {
     }
     //console.log(payload);
     
-    const {
-      insertBody
-    } = await coll.insertOne(payload);
-    setTimeout(() => {
-      document.getElementById('step-animation').style.display = "block";
-    }, 2000);
-
-    setTimeout(() => {
-      location.replace('result.html?email='+payload.email);
-    }, 10000);
+    
+    if (payload.location.lat!='') {
+      document.getElementById('loading').style.display = "block";
+      const {
+        insertBody
+      } = await coll.insertOne(payload);
+      setTimeout(() => {
+        document.getElementById('step-animation').style.display = "block";
+      }, 2000);
+  
+      setTimeout(() => {
+        location.replace('result.html?email='+payload.email);
+      }, 10000);
+    }
+    
   });
 }
 
