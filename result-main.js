@@ -93,7 +93,7 @@
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
+        zoom: 15,
         center: {lat: 40.6976701, lng: -74.2598758}
         });
         directionsDisplay.setMap(map);
@@ -101,15 +101,17 @@
         // var onChangeHandler = function() {
         //     calculateAndDisplayRoute(directionsService, directionsDisplay);
         // };
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        document.getElementById('mode').addEventListener('change', function() {
             calculateAndDisplayRoute(directionsService, directionsDisplay);
-        // document.getElementById('start').addEventListener('change', onChangeHandler);
-        // document.getElementById('end').addEventListener('change', onChangeHandler);
+            });
     
         function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            let selectedMode = document.getElementById('mode').value;
             directionsService.route({
                 origin: ORIGIN,
                 destination: DESTINATION,
-                travelMode: 'DRIVING'
+                travelMode: google.maps.TravelMode[selectedMode]
             }, function(response, status) {
             if (status === 'OK') {
                 directionsDisplay.setDirections(response);

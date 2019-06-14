@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script>
 </head>
+
 <body>    
     <div class="container">
         <h1>Weather Forecast</h1>
@@ -201,8 +202,17 @@
                 <option value="los angeles, ca">Los Angeles</option>
             </select>
         </div> -->
-        <h1>Your Journey</h1>
+        <h1>Select Your Travel Mode To MongoDB World 2019</h1>
         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d104243.27498972554!2d-73.95270466105126!3d40.715207075355046!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x89c26650d5404947%3A0xec4fb213489f11f0!2sJohn+F.+Kennedy+International+Airport%2C+Queens%2C+NY+11430%2C+USA!3m2!1d40.641311099999996!2d-73.77813909999999!4m5!1s0x89c258f9ad303595%3A0x3270a54be206ffce!2s1335+6th+Ave%2C+New+York%2C+NY+10019%2C+USA!3m2!1d40.7625654!2d-73.97972349999999!5e0!3m2!1sen!2sjm!4v1560199234714!5m2!1sen!2sjm" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+        <div id="floating-panel">
+            <b>Mode of Travel: </b>
+            <select id="mode">
+              <option value="DRIVING">Driving</option>
+              <option value="WALKING">Walking</option>
+              <option value="BICYCLING">Bicycling</option>
+              <option value="TRANSIT">Transit</option>
+            </select>
+        </div>
         <div id="map"></div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTo-vHz2G8oqieSVikOK0zmTj8xhjIzSs"></script>
