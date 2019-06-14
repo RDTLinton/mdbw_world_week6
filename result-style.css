@@ -113,19 +113,22 @@ h1 {
 .row {
     display: grid;
     grid-auto-flow: column;
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    /* justify-content: space-between; */
     grid-gap: 30px;
     padding: 0px 20px;
+    border: 1px solid white;
 }
 
 .row > .label {
     font-size: 1.5em;
     font-weight: 700;
+    border-right: 1px solid white;
 }
 
 .row > .content {
     font-size: 1.5em;
-    text-align: right;
+    text-align: left;
 }
 
 li {
